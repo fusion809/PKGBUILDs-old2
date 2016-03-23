@@ -1,0 +1,16 @@
+# Maintainer: Brenton Horne <brentonhorne77 at gmail dot com>
+
+pkgname=mac-white-theme
+pkgver=2016.02
+pkgrel=1
+pkgdesc="The Cinnamon/GNOME OS X-like White theme"
+arch=('i686' 'x86_64')
+url='http://gnome-look.org/content/show.php/White?content=173840'
+license=('GPL')
+source=("http://gnome-look.org/CONTENT/content-files/173840-White-Feb2016.tar.gz")
+sha256sums=('d257046139c67371f4613f4f6f0855ff49f8c17a94e955c6a4c60f79e73d5569')
+
+package() {
+  mkdir -p ${pkgdir}/usr/share/themes
+  cp -a ${srcdir}/White ${pkgdir}/usr/share/themes
+}
