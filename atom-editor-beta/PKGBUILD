@@ -18,7 +18,7 @@ install=atom.install
 source=("https://github.com/atom/atom/archive/v${_pkgver}-beta${_pkgrel}.tar.gz"
 "electron-freetype-pull-10983.patch")
 sha256sums=('4a97a5dd6b73c5fd5e856e7fcab8a3999a811050ed7e07550cefc75be5ed2c23'
-            '4b8e178798de5050805911d0938f052177cfafbf405308eb55b00e400dc35e11')
+            '379f8887c5d61a98f1e089423ed4d4f9353a3918e1701ec074ee1dd6970a4e5c')
 
 prepare() {
 	cd "$srcdir/atom-${_pkgver}-beta${_pkgrel}"
