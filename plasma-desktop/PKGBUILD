@@ -14,7 +14,7 @@ source=("http://download.kde.org/stable/plasma/$pkgver/$pkgname-$pkgver.tar.xz"
 "taskmanager.patch")
 depends=('powerdevil' 'polkit-kde-agent' 'libcanberra' 'libxkbfile' 'kmenuedit'
          'systemsettings' 'ksysguard' 'kpeople' 'baloo' 'qt5-graphicaleffects')
-makedepends=('extra-cmake-modules' 'kdoctools' 'boost' 'xf86-input-evdev' 'xf86-input-synaptics' 'xorg-server-devel' 'libibus' 'scim')
+makedepends=('python2' 'extra-cmake-modules' 'kdoctools' 'boost' 'xf86-input-evdev' 'xf86-input-synaptics' 'xorg-server-devel' 'libibus' 'scim')
 optdepends=('plasma-nm: Network manager applet'
             'ibus: kimpanel IBUS support'
             'scim: kimpanel SCIM support')
