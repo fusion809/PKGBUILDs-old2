@@ -15,8 +15,10 @@ optdepends=('gvfs: file deletion support')
 makedepends=('git' 'npm')
 conflicts=('atom-editor-beta-bin')
 install=atom.install
-source=("https://github.com/atom/atom/archive/v${_pkgver}-beta${_pkgrel}.tar.gz")
-sha256sums=('4a97a5dd6b73c5fd5e856e7fcab8a3999a811050ed7e07550cefc75be5ed2c23')
+source=("https://github.com/atom/atom/archive/v${_pkgver}-beta${_pkgrel}.tar.gz"
+"electron-freetype-pull-10983.patch")
+sha256sums=('4a97a5dd6b73c5fd5e856e7fcab8a3999a811050ed7e07550cefc75be5ed2c23'
+            '4b8e178798de5050805911d0938f052177cfafbf405308eb55b00e400dc35e11')
 
 prepare() {
 	cd "$srcdir/atom-${_pkgver}-beta${_pkgrel}"
@@ -34,9 +36,7 @@ prepare() {
       -e "s|text/plain;|application/javascript;application/json;application/postscript;application/x-csh;application/x-desktop;application/x-httpd-eruby;application/x-httpd-php;application/x-httpd-php3;application/x-httpd-php4;application/x-httpd-php5;application/x-latex;application/x-msdos-program;application/x-ruby;application/x-sh;application/x-shellscript;application/x-sql;application/x-tcl;application/x-tex;application/xhtml+xml;application/xml;application/xml-dtd;application/xslt+xml;text/css;text/csv;text/html;text/plain;text/xml;text/xml-dtd;text/x-asm;text/x-bibtex;text/x-boo;text/x-c++;text/x-c++hdr;text/x-c++src;text/x-c;text/x-chdr;text/x-csh;text/x-csrc;text/x-dsrc;text/x-diff;text/x-eiffel;text/x-fortran;text/x-go;text/x-haskell;text/x-java;text/x-java-source;text/x-lua;text/x-makefile;text/x-markdown;text/x-objc;text/x-pascal;text/x-perl;text/x-php;text/x-python;text/x-ruby;text/x-scala;text/x-scheme;text/x-sh;text/x-tcl;text/x-tex;text/x-vala;text/yaml;|" \
       resources/linux/atom.desktop.in > resources/linux/atom-beta.desktop
 
-  sed -i -e "s/shell = require 'shell'/{shell} = require 'electron'/g" spec/window-event-handler-spec.coffee
-  sed -i -e "s/autoUpdater = require('remote').require('auto-updater')/autoUpdater = require('electron').remote.require('auto-updater')/g" spec/atom-environment-spec.coffee
-  sed -i -e 's/"electronVersion": "0.36.8",/"electronVersion": "0.36.11",/g' package.json
+  patch -p1 < ../electron-freetype-pull-10983.patch
 }
 
 build() {
