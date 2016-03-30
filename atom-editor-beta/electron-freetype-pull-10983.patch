@@ -16,7 +16,7 @@ index 1c878a0..8689eb9 100644
    },
    "license": "MIT",
 -  "electronVersion": "0.36.9",
-+  "electronVersion": "0.36.11",
++  "electronVersion": "0.36.12",
    "dependencies": {
      "async": "0.2.6",
      "atom-keymap": "^6.3.1",
